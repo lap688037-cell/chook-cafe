@@ -14,8 +14,8 @@ export default function About() {
           >
             <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
               <img 
-                src="https://picsum.photos/seed/cafe-interior/1000/1250" 
-                alt="Cafe Interior" 
+                src="/chook-chicken.webp" 
+                alt="Cafe Cuisine" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />

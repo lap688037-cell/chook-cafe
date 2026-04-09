@@ -5,19 +5,19 @@ const FEATURED_DRINKS = [
   {
     name: "Omani Coffee",
     tag: "Traditional",
-    image: "https://picsum.photos/seed/oman-coffee/600/800",
+    image: "/chook-coffee.webp",
     color: "bg-emerald-50"
   },
   {
     name: "Signature Shakshuka",
     tag: "Best Seller",
-    image: "https://picsum.photos/seed/shakshuka/600/800",
+    image: "/chook-meat.webp",
     color: "bg-amber-50"
   },
   {
     name: "San Sebastian Cake",
     tag: "Artisan",
-    image: "https://picsum.photos/seed/cheesecake/600/800",
+    image: "/chook-cheesecake.webp",
     color: "bg-stone-100"
   }
 ];

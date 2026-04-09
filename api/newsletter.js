@@ -2,7 +2,7 @@ import Database from 'better-sqlite3';
 import path from 'path';
 import { Resend } from 'resend';
 
-const dbPath = process.env.RENDER ? "/data/cafe.db" : "/tmp/cafe.db";
+const dbPath = path.join(process.cwd(), "cafe.db");
 const db = new Database(dbPath);
 
 // Email Setup (Resend)

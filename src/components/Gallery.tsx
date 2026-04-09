@@ -1,12 +1,12 @@
 import { motion } from 'motion/react';
 
 const GALLERY_IMAGES = [
-  "https://picsum.photos/seed/coffee1/800/1000",
-  "https://picsum.photos/seed/cafe2/800/1200",
-  "https://picsum.photos/seed/pastry3/800/900",
-  "https://picsum.photos/seed/latte4/800/1100",
-  "https://picsum.photos/seed/interior5/800/1000",
-  "https://picsum.photos/seed/oman6/800/1200"
+  "/chook-burger.webp",
+  "/chook-cheesecake.webp",
+  "/chook-chicken.webp",
+  "/chook-coffee.webp",
+  "/chook-croissant.webp",
+  "/chook-meat.webp"
 ];
 
 export default function Gallery() {
