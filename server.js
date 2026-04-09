@@ -85,7 +85,7 @@ async function startServer() {
       // Send confirmation email
       await sendEmail(
         email,
-        'Booking Received - Verdant Brew Cafe',
+        'Booking Received - Chook Cafe',
         `Hi ${name}, we've received your booking for ${date} at ${time} for ${guests} guests. We'll confirm it shortly!`,
         `<h1>Booking Received</h1><p>Hi ${name},</p><p>We've received your booking for <strong>${date}</strong> at <strong>${time}</strong> for <strong>${guests}</strong> guests.</p><p>We'll confirm it shortly!</p>`
       );
@@ -113,14 +113,14 @@ async function startServer() {
       if (status === 'confirmed') {
         await sendEmail(
           booking.email,
-          'Booking Confirmed! - Verdant Brew Cafe',
+          'Booking Confirmed! - Chook Cafe',
           `Hi ${booking.name}, your booking for ${booking.date} at ${booking.time} has been confirmed. See you soon!`,
           `<h1>Booking Confirmed!</h1><p>Hi ${booking.name},</p><p>Your booking for <strong>${booking.date}</strong> at <strong>${booking.time}</strong> has been <strong>confirmed</strong>.</p><p>See you soon!</p>`
         );
       } else if (status === 'cancelled') {
         await sendEmail(
           booking.email,
-          'Booking Cancelled - Verdant Brew Cafe',
+          'Booking Cancelled - Chook Cafe',
           `Hi ${booking.name}, your booking for ${booking.date} at ${booking.time} has been cancelled.`,
           `<h1>Booking Cancelled</h1><p>Hi ${booking.name},</p><p>Your booking for <strong>${booking.date}</strong> at <strong>${booking.time}</strong> has been <strong>cancelled</strong>.</p>`
         );
@@ -161,9 +161,9 @@ async function startServer() {
       // Send welcome email
       await sendEmail(
         email,
-        'Welcome to Verdant Brew Newsletter',
+        'Welcome to Chook Cafe Newsletter',
         'Thank you for joining our newsletter! Stay tuned for seasonal specials and events.',
-        '<h1>Welcome to the Sanctuary</h1><p>Thank you for joining our newsletter! Stay tuned for seasonal specials and events.</p>'
+        '<h1>Welcome to Chook Cafe</h1><p>Thank you for joining our newsletter! Stay tuned for seasonal specials and events.</p>'
       );
 
       res.json({ success: true });

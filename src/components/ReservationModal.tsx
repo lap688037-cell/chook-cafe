@@ -62,9 +62,9 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
     
     const params = new URLSearchParams({
       action: 'TEMPLATE',
-      text: `Verdant Brew Reservation - ${name}`,
-      details: `Table for ${guests} guests at Verdant Brew Cafe.`,
-      location: '123 Botanical Avenue, Green District, Nature City',
+      text: `Chook Cafe Reservation - ${name}`,
+      details: `Table for ${guests} guests at Chook Cafe.`,
+      location: 'HCRH+3XH, Al Hadiqa St, Muscat 133, Oman',
       dates: `${startDateTime}/${endDateTime}`
     });
     
@@ -191,7 +191,7 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
                     <CheckCircle2 size={40} />
                   </div>
                   <h2 className="text-3xl font-bold text-deep-green mb-2">Reservation Confirmed!</h2>
-                  <p className="text-deep-green/60 mb-8">We've saved your table and sent a confirmation email to {formData.email}. See you soon at Verdant Brew.</p>
+                  <p className="text-deep-green/60 mb-8">We've saved your table and sent a confirmation email to {formData.email}. See you soon at Chook Cafe.</p>
                   
                   <div className="space-y-3">
                     <a 

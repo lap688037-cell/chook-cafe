@@ -77,7 +77,7 @@ export default async function handler(req, res) {
       // Send confirmation email
       await sendEmail(
         email,
-        'Booking Received - Verdant Brew Cafe',
+        'Booking Received - Chook Cafe',
         `Hi ${name}, we've received your booking for ${date} at ${time} for ${guests} guests. We'll confirm it shortly!`,
         `<h1>Booking Received</h1><p>Hi ${name},</p><p>We've received your booking for <strong>${date}</strong> at <strong>${time}</strong> for <strong>${guests}</strong> guests.</p><p>We'll confirm it shortly!</p>`
       );
@@ -102,14 +102,14 @@ export default async function handler(req, res) {
       if (status === 'confirmed') {
         await sendEmail(
           booking.email,
-          'Booking Confirmed! - Verdant Brew Cafe',
+          'Booking Confirmed! - Chook Cafe',
           `Hi ${booking.name}, your booking for ${booking.date} at ${booking.time} has been confirmed. See you soon!`,
           `<h1>Booking Confirmed!</h1><p>Hi ${booking.name},</p><p>Your booking for <strong>${booking.date}</strong> at <strong>${booking.time}</strong> has been <strong>confirmed</strong>.</p><p>See you soon!</p>`
         );
       } else if (status === 'cancelled') {
         await sendEmail(
           booking.email,
-          'Booking Cancelled - Verdant Brew Cafe',
+          'Booking Cancelled - Chook Cafe',
           `Hi ${booking.name}, your booking for ${booking.date} at ${booking.time} has been cancelled.`,
           `<h1>Booking Cancelled</h1><p>Hi ${booking.name},</p><p>Your booking for <strong>${booking.date}</strong> at <strong>${booking.time}</strong> has been <strong>cancelled</strong>.</p>`
         );

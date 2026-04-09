@@ -58,9 +58,9 @@ export default async function handler(req, res) {
       // Send welcome email
       await sendEmail(
         email,
-        'Welcome to Verdant Brew Newsletter',
+        'Welcome to Chook Cafe Newsletter',
         'Thank you for joining our newsletter! Stay tuned for seasonal specials and events.',
-        '<h1>Welcome to the Sanctuary</h1><p>Thank you for joining our newsletter! Stay tuned for seasonal specials and events.</p>'
+        '<h1>Welcome to Chook Cafe</h1><p>Thank you for joining our newsletter! Stay tuned for seasonal specials and events.</p>'
       );
 
       return res.status(200).json({ success: true });
