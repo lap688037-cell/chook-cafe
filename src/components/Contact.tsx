@@ -106,7 +106,7 @@ export default function Contact() {
           >
             {/* Mock Map using an image */}
             <img 
-              src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1000" 
+              src="https://picsum.photos/seed/muscat-map/1000/1000" 
               alt="Map Location" 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

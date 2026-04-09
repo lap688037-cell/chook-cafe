@@ -1,12 +1,12 @@
 import { motion } from 'motion/react';
 
 const GALLERY_IMAGES = [
-  "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1559925393-8be0ec41b50b?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=800"
+  "https://picsum.photos/seed/coffee1/800/1000",
+  "https://picsum.photos/seed/cafe2/800/1200",
+  "https://picsum.photos/seed/pastry3/800/900",
+  "https://picsum.photos/seed/latte4/800/1100",
+  "https://picsum.photos/seed/interior5/800/1000",
+  "https://picsum.photos/seed/oman6/800/1200"
 ];
 
 export default function Gallery() {

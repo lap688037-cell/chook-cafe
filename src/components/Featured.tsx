@@ -5,19 +5,19 @@ const FEATURED_DRINKS = [
   {
     name: "Omani Coffee",
     tag: "Traditional",
-    image: "https://images.unsplash.com/photo-1541167760496-162955ed8a9f?auto=format&fit=crop&q=80&w=600",
+    image: "https://picsum.photos/seed/oman-coffee/600/800",
     color: "bg-emerald-50"
   },
   {
     name: "Signature Shakshuka",
     tag: "Best Seller",
-    image: "https://images.unsplash.com/photo-1590412200988-a436bb7050a8?auto=format&fit=crop&q=80&w=600",
+    image: "https://picsum.photos/seed/shakshuka/600/800",
     color: "bg-amber-50"
   },
   {
     name: "San Sebastian Cake",
     tag: "Artisan",
-    image: "https://images.unsplash.com/photo-1524350300060-d39f447a243b?auto=format&fit=crop&q=80&w=600",
+    image: "https://picsum.photos/seed/cheesecake/600/800",
     color: "bg-stone-100"
   }
 ];
@@ -53,7 +53,7 @@ export default function Featured() {
                 <img 
                   src={drink.image} 
                   alt={drink.name}
-                  className="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-deep-green/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
