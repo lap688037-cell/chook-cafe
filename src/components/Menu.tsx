@@ -3,50 +3,47 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const MENU_DATA = {
   Coffee: [
-    { name: "Cappuccino", price: "OMR 1.500", desc: "Classic Italian espresso with velvety steamed milk foam." },
-    { name: "Iced Americano", price: "OMR 1.200", desc: "Bold espresso shots over ice, smooth and refreshing." },
-    { name: "Mocha", price: "OMR 1.800", desc: "Rich espresso blended with chocolate and steamed milk." },
-    { name: "Omani Coffee", price: "OMR 1.000", desc: "Traditional aromatic Omani coffee with cardamom and saffron." },
-    { name: "Latte", price: "OMR 1.600", desc: "Smooth espresso with creamy steamed milk." },
-    { name: "Cold Brew", price: "OMR 1.800", desc: "Slow-steeped for 12 hours for a smooth, bold flavour." },
+    { name: "Omani Coffee", price: "OMR 1.500", desc: "Aromatic and warming with a beautiful amber color, served traditionally.", image: "/chook-coffee.webp" },
+    { name: "Iced Americano", price: "OMR 1.800", desc: "Chilled espresso with water, perfect for a Muscat afternoon.", image: "/chook-coffee.webp" },
+    { name: "Mocha", price: "OMR 2.200", desc: "Rich chocolate and espresso blend with steamed milk.", image: "/chook-coffee.webp" },
+    { name: "Signature Latte", price: "OMR 2.000", desc: "Smooth espresso with creamy micro-foam.", image: "/chook-coffee.webp" },
   ],
-  Food: [
-    { name: "Healthy Chicken Sandwich", price: "OMR 2.500", desc: "Grilled chicken with fresh greens and house sauce on toasted bread." },
-    { name: "Shakshuka", price: "OMR 2.800", desc: "Rich, flavorful eggs poached in spiced tomato sauce. A crowd favourite." },
-    { name: "Halloumi Croissant", price: "OMR 2.200", desc: "Flaky buttery croissant filled with grilled halloumi cheese." },
-    { name: "Croissant", price: "OMR 1.500", desc: "Classic golden, flaky French croissant baked fresh daily." },
+  Breakfast: [
+    { name: "Signature Shakshuka", price: "OMR 3.500", desc: "Delicious, rich and flavorful poached eggs in a spiced tomato sauce.", image: "/chook-meat.webp" },
+    { name: "Classic Breakfast", price: "OMR 4.000", desc: "A hearty start to your day with local and international favorites.", image: "/chook-meat.webp" },
+  ],
+  Sandwiches: [
+    { name: "Grilled Chicken Sandwich", price: "OMR 2.800", desc: "Tender grilled chicken with fresh greens and house sauce.", image: "/chook-chicken.webp" },
+    { name: "Chook Burger", price: "OMR 3.200", desc: "Triple-layered classic with premium ingredients.", image: "/chook-burger.webp" },
   ],
   Desserts: [
-    { name: "Dates Cake", price: "OMR 1.800", desc: "Moist, rich cake made with Omani dates — a local favourite." },
-    { name: "San Sebastian Cheesecake", price: "OMR 2.500", desc: "Creamy burnt Basque cheesecake with a caramelised top." },
-  ],
+    { name: "San Sebastian Cake", price: "OMR 3.000", desc: "Creamy, burnt-top cheesecake—a Chook Cafe favorite.", image: "/chook-cheesecake.webp" },
+    { name: "Artisan Croissant", price: "OMR 1.500", desc: "Selection of freshly baked treats from our display.", image: "/chook-croissant.webp" },
+  ]
 };
 
-type Category = keyof typeof MENU_DATA;
-
 export default function Menu() {
-  const [activeCategory, setActiveCategory] = useState<Category>("Coffee");
+  const [activeCategory, setActiveCategory] = useState<keyof typeof MENU_DATA>("Coffee");
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-6">
+    <section className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-deep-green mb-3">Our Menu</h2>
-          <p className="text-deep-green/60 max-w-2xl mx-auto text-sm md:text-base">
-            Crafted with care — from our rich espresso to our hearty bites and sweet treats.
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-deep-green mb-4">Artisan Menu</h2>
+          <p className="text-deep-green/60 max-w-2xl mx-auto">
+            Carefully crafted beverages and treats made with the finest seasonal ingredients.
           </p>
         </div>
 
-        {/* Category Tabs — scrollable on mobile */}
-        <div className="flex gap-2 md:gap-4 mb-8 md:mb-12 overflow-x-auto pb-2 px-1 snap-x snap-mandatory scrollbar-none">
-          {(Object.keys(MENU_DATA) as Category[]).map((category) => (
+        <div className="flex justify-center gap-4 mb-12 overflow-x-auto pb-4 no-scrollbar">
+          {Object.keys(MENU_DATA).map((category) => (
             <button
               key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-5 md:px-8 py-2.5 md:py-3 rounded-full font-semibold transition-all whitespace-nowrap text-sm md:text-base snap-start flex-shrink-0 ${
-                activeCategory === category
-                  ? "bg-deep-green text-cream shadow-lg"
-                  : "bg-white text-deep-green/60 hover:bg-sage/10 border border-sage/10"
+              onClick={() => setActiveCategory(category as keyof typeof MENU_DATA)}
+              className={`px-8 py-3 rounded-full font-semibold transition-all whitespace-nowrap ${
+                activeCategory === category 
+                ? "bg-deep-green text-cream shadow-lg" 
+                : "bg-white text-deep-green/60 hover:bg-sage/10"
               }`}
             >
               {category}
@@ -54,8 +51,7 @@ export default function Menu() {
           ))}
         </div>
 
-        {/* Menu Items Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           <AnimatePresence mode="wait">
             {MENU_DATA[activeCategory].map((item, index) => (
               <motion.div
@@ -63,20 +59,30 @@ export default function Menu() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3, delay: index * 0.08 }}
-                className="bg-white p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-xl transition-all border border-sage/10 group"
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-sage/10 group"
               >
-                <div className="flex justify-between items-start gap-3 mb-2">
-                  <h3 className="text-base md:text-xl font-bold text-deep-green group-hover:text-sage transition-colors leading-snug">
-                    {item.name}
-                  </h3>
-                  <span className="text-sm md:text-lg font-semibold text-sage whitespace-nowrap shrink-0">
-                    {item.price}
-                  </span>
+                <div className="flex justify-between items-start mb-4 gap-4">
+                  <div className="w-20 h-20 rounded-2xl overflow-hidden shrink-0 border border-sage/10">
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start mb-1">
+                      <h3 className="text-xl font-bold text-deep-green group-hover:text-sage transition-colors">
+                        {item.name}
+                      </h3>
+                      <span className="text-lg font-semibold text-sage">{item.price}</span>
+                    </div>
+                    <p className="text-deep-green/60 leading-relaxed text-sm">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-deep-green/60 leading-relaxed text-sm md:text-base">
-                  {item.desc}
-                </p>
               </motion.div>
             ))}
           </AnimatePresence>

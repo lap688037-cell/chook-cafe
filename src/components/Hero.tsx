@@ -41,14 +41,21 @@ export default function Hero({ onBookClick }: { onBookClick: () => void }) {
         </motion.div>
         
         <div className="relative h-[500px] lg:h-[700px] hidden lg:block">
-          {/* 3D elements are handled by the background canvas, but we can add some decorative elements here if needed */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
             className="absolute inset-0 flex items-center justify-center"
           >
-            <div className="w-96 h-96 bg-sage/20 rounded-full blur-3xl" />
+            <div className="relative w-full h-full max-w-md aspect-[3/4]">
+              <div className="absolute inset-0 bg-sage/20 rounded-[60px] blur-3xl animate-pulse" />
+              <img 
+                src="/chook-coffee.webp" 
+                alt="Chook Cafe Experience" 
+                className="w-full h-full object-cover rounded-[60px] shadow-2xl relative z-10 border-8 border-white/10"
+                referrerPolicy="no-referrer"
+              />
+            </div>
           </motion.div>
         </div>
       </div>
