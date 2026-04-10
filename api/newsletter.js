@@ -1,9 +1,6 @@
-import Database from 'better-sqlite3';
-import path from 'path';
+import dbConnect from '../lib/db.js';
+import { Newsletter } from '../lib/models.js';
 import { Resend } from 'resend';
-
-const dbPath = path.join(process.cwd(), "cafe.db");
-const db = new Database(dbPath);
 
 // Email Setup (Resend)
 let resendClient = null;
@@ -37,23 +34,22 @@ async function sendEmail(to, subject, text, html) {
   }
 }
 
-// Initialize Database
-db.exec(`
-  CREATE TABLE IF NOT EXISTS newsletter (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    email TEXT UNIQUE NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-  );
-`);
-
 export default async function handler(req, res) {
   const { method } = req;
+  await dbConnect();
 
   try {
     if (method === 'POST') {
       const { email } = req.body;
-      const stmt = db.prepare("INSERT INTO newsletter (email) VALUES (?)");
-      stmt.run(email);
+      
+      try {
+        await Newsletter.create({ email });
+      } catch (error) {
+        if (error.code === 11000) {
+          return res.status(400).json({ error: "Already subscribed" });
+        }
+        throw error;
+      }
 
       // Send welcome email
       await sendEmail(
@@ -69,9 +65,6 @@ export default async function handler(req, res) {
     res.setHeader('Allow', ['POST']);
     return res.status(405).end(`Method ${method} Not Allowed`);
   } catch (error) {
-    if (error.code === 'SQLITE_CONSTRAINT') {
-      return res.status(400).json({ error: "Already subscribed" });
-    }
     console.error('API Error:', error);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
