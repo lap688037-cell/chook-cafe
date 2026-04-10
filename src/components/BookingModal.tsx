@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Calendar, Users, Clock, CheckCircle2, ExternalLink } from 'lucide-react';
 
-interface ChookBookingModalProps {
+interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export default function ChookBookingModal({ isOpen, onClose }: ChookBookingModalProps) {
+export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: '',

@@ -9,7 +9,7 @@ import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ThreeCanvas from './components/ThreeCanvas';
-import ChookBookingModal from './components/ChookBookingModal';
+import BookingModal from './components/BookingModal';
 import AdminView from './components/AdminView';
 import AdminLoginModal from './components/AdminLoginModal';
 
@@ -95,7 +95,7 @@ export default function App() {
 
       <Footer />
 
-      <ChookBookingModal 
+      <BookingModal 
         isOpen={isBookingOpen} 
         onClose={() => setIsBookingOpen(false)} 
       />
